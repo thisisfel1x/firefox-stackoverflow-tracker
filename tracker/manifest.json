@@ -1,0 +1,45 @@
+{
+
+  "manifest_version": 2,
+  "name": "StackOverflow Tracker",
+  "version": "1.0",
+
+  "description": "A StackOverflow tracker for Firefox. Counts how often you have visited StackOverflow",
+  "homepage_url": "https://github.com/thisisfel1x/firefox-stackoverflow-tracker",
+
+  "icons": {
+    "48": "/icons/icon.png",
+    "96": "/icons/icon@2x.png"
+  },
+
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": {
+      "16": "/icons/theme-icon-16.png",
+      "32": "/icons/theme-icon-32.png"
+    },
+    "default_title": "Stackoverflow Tracker",
+    "default_popup": "popup/total-visits.html",
+    "theme_icons": [{
+      "light": "/icons/theme-icon-16.png",
+      "dark": "/icons/theme-icon-16.png",
+      "size": 16
+    }, {
+      "light": "/icons/theme-icon-32.png",
+      "dark": "/icons/theme-icon-32.png",
+      "size": 32
+    }]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.stackoverflow.com/*"],
+      "js": ["firefox-tracker.js"]
+    }
+  ],
+
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ]
+}
